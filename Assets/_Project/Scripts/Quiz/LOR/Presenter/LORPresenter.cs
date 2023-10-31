@@ -41,11 +41,12 @@ namespace Quiz
             {
                 var part = model.Data.Parts[i];
                 var t = 0f;
+                var duration = part.AudioClip == null ? part.Duration : part.AudioClip.length + part.ClipDelay;
+                view.SetMessage(part.Text, part.AudioClip);
 
-                view.SetMessage(part.Text);
-                while (t <= part.Duration)
+                while (t <= duration)
                 {
-                    view.UpdateTimer(t, part.Duration);
+                    view.UpdateTimer(t, duration);
                     t += Time.deltaTime;
 
                     await Task.Yield();
@@ -54,9 +55,14 @@ namespace Quiz
 
             await Task.Delay((int)(model.Data.ExitDelay * 1000));
 
+            while (!Input.GetKeyDown(KeyCode.Space))
+            {
+                await Task.Yield();
+            }
+
             var reloadState = new ReloadState();
             reloadState.SetStateMachine(model.StateMachine);
-            model.StateMachine.TransitionTo(reloadState); 
+            model.StateMachine.TransitionTo(reloadState);
         }
     }
 }

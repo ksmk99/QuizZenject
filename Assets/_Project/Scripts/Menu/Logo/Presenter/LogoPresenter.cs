@@ -20,6 +20,8 @@ namespace Menu
 
         private void ChangeState()
         {
+            view.OnClick -= ChangeState;
+
             model.StateMachine.TransitionTo(model.State);
         }
     }

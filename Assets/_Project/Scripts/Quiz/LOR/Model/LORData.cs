@@ -21,10 +21,12 @@ namespace Quiz
     }
 
     [Serializable]
-    public struct LORPart
+    public class LORPart
     {
         public string Text;
         public float Duration;
+        public AudioClip AudioClip;
+        public float ClipDelay = 1f;
     }
 }
 

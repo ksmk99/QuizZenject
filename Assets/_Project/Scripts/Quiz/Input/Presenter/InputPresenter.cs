@@ -33,7 +33,7 @@ namespace Quiz
                 return;
             }
 
-            view.SendMessage("ERROR");
+            view.SetMessageValue("ERROR");
         }
     }
 }

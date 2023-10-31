@@ -10,10 +10,16 @@ public class LORView : MonoBehaviour
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private Slider timerSlider;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private AudioSource audioSource;
 
-    public void SetMessage(string message)
+    public void SetMessage(string message, AudioClip audioClip)
     {
         messageText.text = message;
+        if (audioClip != null)
+        {
+            audioSource.clip = audioClip;
+            audioSource.Play();
+        }
     }
 
     public void UpdateTimer(float time, float duration)

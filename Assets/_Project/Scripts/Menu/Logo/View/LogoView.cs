@@ -33,5 +33,13 @@ namespace Menu
         {
             OnClick?.Invoke();  
         }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                Click();
+            }
+        }
     }
 }
