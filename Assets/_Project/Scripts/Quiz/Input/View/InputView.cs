@@ -17,6 +17,7 @@ namespace Quiz
         private void OnEnable()
         {
             inputField.onSubmit.AddListener(Submit);
+            inputField.ActivateInputField();
         }
 
         private void OnDisable()
@@ -32,6 +33,14 @@ namespace Quiz
         private void Submit(string key)
         {
             OnTextSubmit?.Invoke(key);
+        }
+
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                inputField.ActivateInputField();
+            }
         }
     }
 }
