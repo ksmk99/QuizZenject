@@ -14,10 +14,11 @@ namespace Quiz
 
         public event Action<string> OnTextSubmit;
 
+        private bool isActive;
+
         private void OnEnable()
         {
             inputField.onSubmit.AddListener(Submit);
-            inputField.ActivateInputField();
         }
 
         private void OnDisable()
@@ -39,7 +40,15 @@ namespace Quiz
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                inputField.ActivateInputField();
+                if (!isActive)
+                {
+                    inputField.ActivateInputField();
+                    isActive = true;
+                }
+                else
+                {
+                    Submit(inputField.text);
+                }
             }
         }
     }
