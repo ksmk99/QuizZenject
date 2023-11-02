@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zenject;
 
 namespace Quiz
 {
@@ -14,11 +15,14 @@ namespace Quiz
         public LOR Data { get; set; }
         public IPLayerData PLayerData { get; }
         public GameplayStateMachine StateMachine { get; }
+        public SignalBus SignalBus { get; }
 
-        public LORModel(IPLayerData pLayerData, GameplayStateMachine stateMachine)
+
+        public LORModel(IPLayerData pLayerData, GameplayStateMachine stateMachine, SignalBus signalBus)
         {
             PLayerData = pLayerData;
             StateMachine = stateMachine;
+            SignalBus = signalBus;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Installers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,8 @@ namespace Quiz
             if(isSuccess)
             {
                 view.SetMessageValue("Success!");
-                model.LOR.Show();
+                model.SignalBus.Fire(new QuestShowSignal());
+                view.gameObject.SetActive(false);
                 return;
             }
 

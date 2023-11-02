@@ -1,9 +1,15 @@
 ﻿using Quiz;
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 
 namespace Installers
 {
+    public class QuestShowSignal { }    
+    public class QuestEndSignal { }
+
+
     public class QuizInstaller : MonoInstaller
     {
         [SerializeField] private QuizData quizData;
@@ -16,6 +22,7 @@ namespace Installers
             Container.BindInterfacesAndSelfTo<PLayerData>()
                 .AsSingle()
                 .WithArguments(quizData);
+
             BindLOR();
             BindInput();
         }
@@ -27,6 +34,10 @@ namespace Installers
                 .AsSingle();
             Container.BindInterfacesAndSelfTo<LORPresenter>()
                 .AsSingle();
+
+            Container.BindSignal<QuestShowSignal>()
+                .ToMethod<LORPresenter>(x => x.Show)
+                .FromResolve();
         }
 
         private void BindInput()

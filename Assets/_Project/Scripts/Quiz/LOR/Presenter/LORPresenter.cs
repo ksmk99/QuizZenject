@@ -1,4 +1,5 @@
 ﻿using GameplayState;
+using Installers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,8 @@ namespace Quiz
 
             await Task.Delay((int)(model.Data.ExitDelay * 1000));
 
+            model.SignalBus.TryFire(new QuestEndSignal());
+
             while (!Input.GetKeyDown(KeyCode.Space))
             {
                 await Task.Yield();
@@ -63,6 +66,8 @@ namespace Quiz
             var reloadState = new ReloadState();
             reloadState.SetStateMachine(model.StateMachine);
             model.StateMachine.TransitionTo(reloadState);
+
+            view.gameObject.SetActive(false);
         }
     }
 }
