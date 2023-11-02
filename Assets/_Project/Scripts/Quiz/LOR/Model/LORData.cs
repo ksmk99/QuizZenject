@@ -15,7 +15,7 @@ namespace Quiz
     public class LOR : IQuestionData
     {
         [field: SerializeField]
-        public string Key { get; set; }
+        public string[] Keys { get; set; }
         public float ExitDelay = 5f;
         public LORPart[] Parts;
     }

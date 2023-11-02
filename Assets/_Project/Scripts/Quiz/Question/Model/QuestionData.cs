@@ -8,7 +8,7 @@ namespace Quiz
 {
     public interface IQuestionData
     {
-        string Key { get; set; }
+        string[] Keys { get; set; }
     }
 
     [Serializable]

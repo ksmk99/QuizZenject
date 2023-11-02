@@ -21,7 +21,10 @@ namespace Quiz
             questionsDict = new Dictionary<int, IQuestionData>();
             foreach (var item in data.LOR.Data)
             {
-                questionsDict.Add(item.Key.GetHashCode(), item);
+                foreach (var key in item.Keys)
+                {
+                    questionsDict.Add(key.GetHashCode(), item);
+                }
             }
         }
 

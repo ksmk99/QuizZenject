@@ -58,7 +58,7 @@ namespace Quiz
 
             model.SignalBus.TryFire(new QuestEndSignal());
 
-            while (!Input.GetKeyDown(KeyCode.Space))
+            while (!Input.GetKeyDown(KeyCode.Return))
             {
                 await Task.Yield();
             }
