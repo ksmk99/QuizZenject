@@ -61,3 +61,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+*.mp4
+
+Assets/_Project/Music/
+
+Assets/_Project/Videos/
