@@ -508,6 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 911276760}
   messageText: {fileID: 1047785206}
+  audioSource: {fileID: 1402878028}
 --- !u!222 &344196727
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2928,5 +2929,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quizData: {fileID: 11400000, guid: 5cc897a23668b884b86b2f198bceccbb, type: 2}
+  inputDelay: 10
   inputView: {fileID: 344196725}
   lorView: {fileID: 1618439428}
