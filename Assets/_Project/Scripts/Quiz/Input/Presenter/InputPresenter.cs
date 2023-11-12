@@ -1,9 +1,11 @@
-﻿using Installers;
+﻿using GameplayState;
+using Installers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Zenject;
 
 namespace Quiz
@@ -22,20 +24,56 @@ namespace Quiz
         public void Initialize()
         {
             view.OnTextSubmit += Submit;
+            view.OnStart += StartTimer;
         }
 
-        private void Submit(string key)
+        private async void StartTimer()
         {
-            var isSuccess = model.PLayerData.TrySetKey(key);
-            if(isSuccess)
+            var time = 0f;
+            while (time < model.ExitDelay)
             {
-                view.SetMessageValue("Success!");
-                model.SignalBus.Fire(new QuestShowSignal());
-                view.gameObject.SetActive(false);
-                return;
+                time += 0.1f;
+                await Task.Delay(100);
             }
 
-            view.SetMessageValue("ERROR");
+            if (model.CanExit)
+            {
+                var state = new MainMenuState();
+                SetState(state);
+            }
+        }
+
+        private async void Submit(string key)
+        {
+            model.CanExit = false;
+            var isSuccess = model.PLayerData.TrySetKey(key);
+            var soundData = model.PLayerData.GetAnswerSound(isSuccess ? AnswerSoundType.Correct : AnswerSoundType.Incorrect);
+
+            model.SignalBus.Fire(new AnswerStartSignal());
+
+            view.SetMessageValue(soundData.Text, soundData.AudioClip);
+            var duration = soundData.AudioClip.length + 1f;
+
+            await Task.Delay((int)(duration * 1000));
+
+            if (isSuccess)
+            {
+                view.gameObject.SetActive(false);
+                model.SignalBus.Fire(new QuestShowSignal());
+            }
+            else
+            {
+                model.SignalBus.Fire(new AnswerEndSignal());
+
+                var reloadState = new ReloadState();
+                SetState(reloadState);
+            }
+        }
+
+        private void SetState(GameState state)
+        {
+            state.SetStateMachine(model.StateMachine);
+            model.StateMachine.TransitionTo(state);
         }
     }
 }

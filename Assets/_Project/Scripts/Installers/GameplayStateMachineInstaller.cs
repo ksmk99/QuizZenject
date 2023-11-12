@@ -28,6 +28,9 @@ namespace Installers
 
             Container.DeclareSignal<QuestShowSignal>();
             Container.DeclareSignal<QuestEndSignal>();
+
+            Container.DeclareSignal<AnswerStartSignal>();
+            Container.DeclareSignal<AnswerEndSignal>();
         }
 
         private void BindMusic()
@@ -43,6 +46,13 @@ namespace Installers
                 .ToMethod<BackMusicPresenter>(x => x.MuteVolume)
                 .FromResolve();
             Container.BindSignal<QuestEndSignal>()
+                .ToMethod<BackMusicPresenter>(x => x.SetNormalVolume)
+                .FromResolve();
+
+            Container.BindSignal<AnswerStartSignal>()
+                .ToMethod<BackMusicPresenter>(x => x.MuteVolume)
+                .FromResolve();
+            Container.BindSignal<AnswerEndSignal>()
                 .ToMethod<BackMusicPresenter>(x => x.SetNormalVolume)
                 .FromResolve();
         }

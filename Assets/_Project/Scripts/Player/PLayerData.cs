@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace Quiz
@@ -8,6 +9,7 @@ namespace Quiz
         public string KEY { get; private set; }
 
         private Dictionary<int, IQuestionData> questionsDict;
+        private Dictionary<AnswerSoundType, List<AnswerSound>> soundsDict;
 
         private readonly QuizData data;
 
@@ -25,6 +27,17 @@ namespace Quiz
                 {
                     questionsDict.Add(key.GetHashCode(), item);
                 }
+            }
+
+            soundsDict = new Dictionary<AnswerSoundType, List<AnswerSound>>();
+            foreach (var sound in data.AnswerSounds)
+            {
+                if(!soundsDict.ContainsKey(sound.Type))
+                {
+                    soundsDict.Add(sound.Type, new List<AnswerSound>());
+                }
+
+                soundsDict[sound.Type].Add(sound);
             }
         }
 
@@ -44,6 +57,11 @@ namespace Quiz
         {
             int index = KEY.GetHashCode();
             return questionsDict[index];
+        }
+
+        public AnswerSound GetAnswerSound(AnswerSoundType type)
+        {
+            return soundsDict[type][Random.Range(0, soundsDict.Count - 1)];
         }
     }
 }

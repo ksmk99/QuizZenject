@@ -9,10 +9,14 @@ namespace Installers
     public class QuestShowSignal { }    
     public class QuestEndSignal { }
 
+    public class AnswerEndSignal { }
+    public class AnswerStartSignal { }
+
 
     public class QuizInstaller : MonoInstaller
     {
         [SerializeField] private QuizData quizData;
+        [SerializeField] private float inputDelay = 10f;
         [Space]
         [SerializeField] private InputView inputView;
         [SerializeField] private LORView lorView;
@@ -44,7 +48,8 @@ namespace Installers
         {
             Container.BindInstance(inputView);
             Container.Bind<InputModel>()
-                .AsSingle();
+                .AsSingle()
+                .WithArguments(inputDelay);
             Container.BindInterfacesAndSelfTo<InputPresenter>()
                 .AsSingle();
         }

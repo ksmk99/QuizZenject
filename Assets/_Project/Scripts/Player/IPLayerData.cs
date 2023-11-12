@@ -7,5 +7,6 @@
         IQuestionData GetQuestionData();
         bool TrySetKey(string key);
         void Initialize();
+        AnswerSound GetAnswerSound(AnswerSoundType type);
     }
 }
