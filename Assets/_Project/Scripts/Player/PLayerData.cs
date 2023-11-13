@@ -61,7 +61,7 @@ namespace Quiz
 
         public AnswerSound GetAnswerSound(AnswerSoundType type)
         {
-            return soundsDict[type][Random.Range(0, soundsDict.Count - 1)];
+            return soundsDict[type][Random.Range(0, soundsDict[type].Count - 1)];
         }
     }
 }

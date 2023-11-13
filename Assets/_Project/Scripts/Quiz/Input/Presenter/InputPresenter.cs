@@ -45,6 +45,11 @@ namespace Quiz
 
         private async void Submit(string key)
         {
+            if(!model.CanExit)
+            {
+                return;
+            }
+
             model.CanExit = false;
             var isSuccess = model.PLayerData.TrySetKey(key);
             var soundData = model.PLayerData.GetAnswerSound(isSuccess ? AnswerSoundType.Correct : AnswerSoundType.Incorrect);
