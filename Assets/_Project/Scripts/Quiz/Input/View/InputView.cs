@@ -43,6 +43,7 @@ namespace Quiz
 
         private void Submit(string key)
         {
+            key = key.ToLower();
             OnTextSubmit?.Invoke(key);
         }
 

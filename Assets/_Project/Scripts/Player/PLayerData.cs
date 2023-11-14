@@ -25,7 +25,8 @@ namespace Quiz
             {
                 foreach (var key in item.Keys)
                 {
-                    questionsDict.Add(key.GetHashCode(), item);
+                    var newKey = key.ToLower();
+                    questionsDict.Add(newKey.GetHashCode(), item);
                 }
             }
 
