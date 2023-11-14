@@ -56,7 +56,7 @@ MonoBehaviour:
         AudioClip: {fileID: 8300000, guid: 626061379401a854d82a05ff2e8e85c9, type: 3}
         ClipDelay: 0
     - <Keys>k__BackingField:
-      - lilit
+      - Lilit
       - lilith
       ExitDelay: 0
       Parts:
@@ -93,9 +93,9 @@ MonoBehaviour:
         AudioClip: {fileID: 8300000, guid: a0e4a3842356b734d821a3fdfea0ecca, type: 3}
         ClipDelay: 0
     - <Keys>k__BackingField:
-      - Diaboli
-      - Diabolus
-      - Diablo
+      - Dupa
+      - Dipa
+      - Dapa
       ExitDelay: 0
       Parts: []
     - <Keys>k__BackingField: []
