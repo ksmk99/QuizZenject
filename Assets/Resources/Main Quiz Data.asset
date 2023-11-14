@@ -92,14 +92,5 @@ MonoBehaviour:
         Duration: 0
         AudioClip: {fileID: 8300000, guid: a0e4a3842356b734d821a3fdfea0ecca, type: 3}
         ClipDelay: 0
-    - <Keys>k__BackingField:
-      - Dupa
-      - Dipa
-      - Dapa
-      ExitDelay: 0
-      Parts: []
-    - <Keys>k__BackingField: []
-      ExitDelay: 0
-      Parts: []
   Questions:
     Questions: []
