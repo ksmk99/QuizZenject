@@ -23,7 +23,7 @@ MonoBehaviour:
     Type: 1
     AudioClip: {fileID: 8300000, guid: 7739db4d75a036b469f0e6c3c9669afc, type: 3}
   - Text: "\u0414\u0430 ! \u042D\u0442\u043E \u0442\u0430\u043A"
-    Type: 2
+    Type: 1
     AudioClip: {fileID: 8300000, guid: ebeb319c49f74eb4ea1597370296ce20, type: 3}
   - Text: "\u041D\u0435\u0435\u0435\u0435\u0442 ! \u044D\u0442\u043E \u043D\u0435
       \u0432\u0435\u0440\u043D\u043E "
