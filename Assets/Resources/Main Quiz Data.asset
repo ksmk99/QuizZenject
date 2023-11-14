@@ -22,16 +22,26 @@ MonoBehaviour:
   - Text: "\u041E\u043A, \u0434\u0430\u0432\u0430\u0439 \u0434\u0430\u043B\u044C\u0448\u0435 "
     Type: 1
     AudioClip: {fileID: 8300000, guid: 7739db4d75a036b469f0e6c3c9669afc, type: 3}
+  - Text: "\u0414\u0430 ! \u042D\u0442\u043E \u0442\u0430\u043A"
+    Type: 2
+    AudioClip: {fileID: 8300000, guid: ebeb319c49f74eb4ea1597370296ce20, type: 3}
   - Text: "\u041D\u0435\u0435\u0435\u0435\u0442 ! \u044D\u0442\u043E \u043D\u0435
       \u0432\u0435\u0440\u043D\u043E "
     Type: 2
     AudioClip: {fileID: 8300000, guid: 33e7570d4768a8340a801e13ef1ddfe8, type: 3}
-  - Text: "\u041D\u0435\u0442 ! \u0434\u0443\u043C\u0430\u0439 \u0443\u0441\u0435\u0440\u0434\u043D\u0435\u0439 "
-    Type: 2
-    AudioClip: {fileID: 8300000, guid: 782257eae74be0145941a2c84cfd81b8, type: 3}
   - Text: "\u041D\u0435\u0442 !  \u0412\u043A\u043B\u044E\u0447\u0438 \u0433\u043E\u043B\u043E\u0432\u0443"
     Type: 2
     AudioClip: {fileID: 8300000, guid: bbf5cd3b5a08aad4faaa8aaf54aa8d30, type: 3}
+  - Text: "\u041D\u0435\u0442 ! \u0434\u0443\u043C\u0430\u0439 \u0443\u0441\u0435\u0440\u0434\u043D\u0435\u0439 "
+    Type: 2
+    AudioClip: {fileID: 8300000, guid: 782257eae74be0145941a2c84cfd81b8, type: 3}
+  - Text: "\u0414\u0430\u0432\u0430\u0439 \u043F\u043E \u043D\u043E\u0432\u043E\u0439,
+      \u043C\u0438\u0448\u0430, \u0432\u0441\u0435 \u0445\u0443\u0439\u043D\u044F!"
+    Type: 2
+    AudioClip: {fileID: 8300000, guid: 1a9664bf67eb7da4c81fd7afde11fb6e, type: 3}
+  - Text: "\u0422\u044B \u043E\u0431\u0435\u0437\u0443\u043C\u0435\u043B !?"
+    Type: 2
+    AudioClip: {fileID: 8300000, guid: 5bbfb6022bba47b4a96c6b799fb72550, type: 3}
   LOR:
     Data:
     - <Keys>k__BackingField:
@@ -44,7 +54,7 @@ MonoBehaviour:
           \u043A\u0443\u0441\u0430\u0432\u0448\u0430\u044F?"
         Duration: 5
         AudioClip: {fileID: 8300000, guid: 626061379401a854d82a05ff2e8e85c9, type: 3}
-        ClipDelay: 5
+        ClipDelay: 0
     - <Keys>k__BackingField:
       - lilit
       - lilith
@@ -53,7 +63,7 @@ MonoBehaviour:
       - Text: "\u0422\u0435\u043F\u0435\u0440\u044C \u0437\u0430\u0433\u043B\u044F\u043D\u0438
           \u043F\u043E\u0434  <sprite index=12>. \u0422\u044B \u0437\u043D\u0430\u0435\u0448\u044C
           \u0447\u0442\u043E \u0434\u0435\u043B\u0430\u0442\u044C."
-        Duration: 5
+        Duration: 0
         AudioClip: {fileID: 8300000, guid: f9f742b1099fb8b428f0598e2be377bb, type: 3}
         ClipDelay: 0
     - <Keys>k__BackingField:
