@@ -18,6 +18,7 @@ namespace Quiz
         public event Action OnStart;
 
         private bool isActive;
+        private bool isSubmitted = false;
 
         private void OnEnable()
         {
@@ -47,17 +48,20 @@ namespace Quiz
 
         public void Update()
         {
+            if(isSubmitted)
+            {
+                return;
+            }
+
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 if (!isActive)
                 {
+                    isSubmitted = true;
+
                     inputField.ActivateInputField();
                     isActive = true;
                     OnStart?.Invoke();
-                }
-                else
-                {
-                    Submit(inputField.text);
                 }
             }
         }
@@ -65,10 +69,16 @@ namespace Quiz
 
         private void CheckSpace(string text)
         {
+            if(text == String.Empty)
+            {
+                return;
+            }
+
             if(text.Last().Equals(' '))
             {
                 Submit(inputField.text.TrimEnd(' '));
                 inputField.DeactivateInputField();
+                inputField.enabled = false;
             }
         }
     }
