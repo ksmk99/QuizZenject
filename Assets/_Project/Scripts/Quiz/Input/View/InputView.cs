@@ -18,6 +18,7 @@ namespace Quiz
 
         public event Action<string> OnTextSubmit;
         public event Action OnStart;
+        public event Action OnTextValueChange;
 
         private bool isActive;
         private bool isSubmitted = false;
@@ -72,7 +73,9 @@ namespace Quiz
 
         private void CheckSpace(string text)
         {
-            if(text == String.Empty)
+            OnTextValueChange?.Invoke();
+
+            if (text == String.Empty)
             {
                 return;
             }

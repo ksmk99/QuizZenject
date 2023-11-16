@@ -14,6 +14,8 @@ namespace Quiz
         public GameplayStateMachine StateMachine { get; }
         public SignalBus SignalBus { get; }
         public float ExitDelay { get; }
+        public float Time { get; internal set; }
+
         public bool CanExit;
 
         public InputModel(IPLayerData pLayerData, GameplayStateMachine stateMachine, SignalBus signalBus, float exitDelay)

@@ -25,14 +25,15 @@ namespace Quiz
         {
             view.OnTextSubmit += Submit;
             view.OnStart += StartTimer;
+            view.OnTextValueChange += () => model.Time = 0;
         }
 
         private async void StartTimer()
         {
-            var time = 0f;
-            while (time < model.ExitDelay)
+            model.Time = 0f;
+            while (model.Time < model.ExitDelay)
             {
-                time += 0.1f;
+                model.Time += 0.1f;
                 await Task.Delay(100);
             }
 
