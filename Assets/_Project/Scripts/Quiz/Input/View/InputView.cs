@@ -12,7 +12,9 @@ namespace Quiz
     {
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private TMP_Text messageText;
-        [SerializeField] private AudioSource audioSource;   
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip audioClip;
+        
 
         public event Action<string> OnTextSubmit;
         public event Action OnStart;
@@ -80,6 +82,11 @@ namespace Quiz
                 Submit(inputField.text.TrimEnd(' '));
                 inputField.DeactivateInputField();
                 inputField.enabled = false;
+            }
+            else
+            {
+                audioSource.clip = audioClip;
+                audioSource.Play();
             }
         }
     }
