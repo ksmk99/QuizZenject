@@ -7,6 +7,9 @@ namespace Installers
     public class GameplayStateMachineInstaller : MonoInstaller
     {
         [SerializeField] private BackMusicView backMusicView;
+        [Space]
+        [SerializeField] private AudioClip menuMusicClip;
+        [SerializeField] private AudioClip quizMusicClip;
         [SerializeField] private float normalVolume = 0.75f;
         [SerializeField] private float mutedVolume = 0.2f;
 
@@ -31,6 +34,9 @@ namespace Installers
 
             Container.DeclareSignal<AnswerStartSignal>();
             Container.DeclareSignal<AnswerEndSignal>();
+
+            Container.DeclareSignal<MenuMusicSignal>();
+            Container.DeclareSignal<QuizMusicSignal>();
         }
 
         private void BindMusic()
@@ -38,10 +44,17 @@ namespace Installers
             Container.BindInstance(backMusicView);
             Container.Bind<BackMusicModel>()
                 .AsSingle()
-                .WithArguments(normalVolume, mutedVolume);
+                .WithArguments(menuMusicClip, quizMusicClip, normalVolume, mutedVolume);
             Container.BindInterfacesAndSelfTo<BackMusicPresenter>()
                 .AsSingle();
 
+            Container.BindSignal<MenuMusicSignal>()
+                .ToMethod<BackMusicPresenter>(x => x.SetMenuAudio)
+                .FromResolve();
+            Container.BindSignal<QuizMusicSignal>()
+                .ToMethod<BackMusicPresenter>(x => x.SetQuizAudio)
+                .FromResolve();         
+            
             Container.BindSignal<QuestShowSignal>()
                 .ToMethod<BackMusicPresenter>(x => x.MuteVolume)
                 .FromResolve();

@@ -6,6 +6,7 @@ using UnityEngine;
 public class BackMusicView : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource backAudioSource;
 
     public void SetVolume(float value)
     {
@@ -15,5 +16,11 @@ public class BackMusicView : MonoBehaviour
         }
 
         audioSource.volume = value;
+    }
+
+    public void SetClip(AudioClip mainMenuAudio)
+    {
+        backAudioSource.clip = mainMenuAudio;
+        backAudioSource.Play();
     }
 }

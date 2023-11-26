@@ -26,6 +26,8 @@ namespace Quiz
             view.OnTextSubmit += Submit;
             view.OnStart += StartTimer;
             view.OnTextValueChange += () => model.Time = 0;
+
+            model.SignalBus.Fire(new QuizMusicSignal());
         }
 
         private async void StartTimer()

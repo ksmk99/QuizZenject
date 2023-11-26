@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public class MenuMusicSignal  { }
+public class QuizMusicSignal  { }
+
 public class BackMusicPresenter : IInitializable
 {
     private readonly BackMusicModel model;
@@ -17,6 +20,7 @@ public class BackMusicPresenter : IInitializable
     public void Initialize()
     {
         SetNormalVolume();
+        SetMenuAudio();
     }
 
     public void MuteVolume()
@@ -27,5 +31,15 @@ public class BackMusicPresenter : IInitializable
     public void SetNormalVolume()
     {
         view.SetVolume(model.NormalValue);
+    }
+
+    public void SetMenuAudio()
+    {
+        view.SetClip(model.MainMenuAudio);
+    }
+
+    public void SetQuizAudio()
+    {
+        view.SetClip(model.QuizAudio);
     }
 }
